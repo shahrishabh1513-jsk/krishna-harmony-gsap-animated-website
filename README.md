@@ -81,4 +81,6 @@ Click and interaction feedback
 ⭐ Font Awesome – Icons             |
 🔤 Google Fonts – Typography             
 
-
+<img width="1269" height="827" alt="kh1" src="https://github.com/user-attachments/assets/7ead983b-8321-4b23-9377-046526d13968" />
+<img width="1456" height="826" alt="kh2" src="https://github.com/user-attachments/assets/cebf9e94-b977-4274-9dbd-d6ebc02098e5" />
+<img width="1351" height="736" alt="kh3" src="https://github.com/user-attachments/assets/2222f3d4-7590-49e4-af5d-6e8b650dfc4f" />
