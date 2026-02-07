@@ -9,37 +9,57 @@ This project is ideal for real estate businesses, frontend portfolios, and UI/UX
 
 🌟 Project Highlights
 
-Premium luxury real-estate design
+🏡 Premium luxury real-estate design
 
-Smooth GSAP animations and transitions
+🎞️ Smooth GSAP animations and transitions
 
-Scroll-based animations using GSAP ScrollTrigger
+📜 Scroll-based animations using GSAP ScrollTrigger
 
-Fully responsive across all devices
+📱 Fully responsive across all devices
 
-Clean and modern UI/UX
+🎨 Clean and modern UI/UX
 
-Interactive image slider and gallery modal
+🖼️ Interactive image slider and gallery modal
 
-Well-structured and optimized frontend code
+⚡ Well-structured and optimized frontend code
 
 🎞️ Animations & GSAP Usage
 
-This website uses GSAP (GreenSock Animation Platform) extensively to enhance user experience:
+This website uses GSAP (GreenSock Animation Platform) extensively to enhance the user experience:
 
-Page load animations (hero section, navbar, content)
+A. Page Load Animations
 
-Scroll-triggered animations for sections like amenities, specifications, and gallery
+Hero section entrance animation
+
+Navbar and content reveal
+
+B. Scroll-Triggered Animations
+
+Amenities section animations
+
+Specifications section transitions
+
+Gallery image reveal effects
+
+C. Slider Animations
 
 Smooth image slider transitions
 
-Floating card animations for visual depth
+Auto-play and navigation effects
 
-Modal open/close animations for gallery images
+D. Floating Effects
 
-Button hover and interaction effects
+Floating cards for visual depth and motion
 
-These animations make the website feel dynamic, premium, and engaging.
+E. Modal Animations
+
+Gallery image modal open/close animations
+
+F. Interaction Effects
+
+Button hover animations
+
+Click and interaction feedback
 
 ✨ Features
 
@@ -60,4 +80,5 @@ These animations make the website feel dynamic, premium, and engaging.
 📜 GSAP ScrollTrigger – Scroll-based animations             |
 ⭐ Font Awesome – Icons             |
 🔤 Google Fonts – Typography             
+
 
