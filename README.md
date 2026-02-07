@@ -43,19 +43,13 @@ These animations make the website feel dynamic, premium, and engaging.
 
 ✨ Features
 
-🏠 Hero section with animated image slider
-
-🎞️ GSAP-powered page load and scroll animations
-
-🖼️ Image gallery with animated modal preview
-
-🏊 Amenities and specifications sections
-
-📱 Fully responsive design (desktop, tablet, mobile)
-
-🎨 Elegant typography and color scheme
-
-⚡ Fast-loading and lightweight frontend
+🏠 Hero section with animated image slider             |
+🎞️ GSAP-powered page load and scroll animations             |
+🖼️ Image gallery with animated modal preview             |
+🏊 Amenities and specifications sections             |
+📱 Fully responsive design (desktop, tablet, mobile)             |
+🎨 Elegant typography and color scheme             |
+⚡ Fast-loading and lightweight frontend             |
 
 🛠️ Tech Stack
 
@@ -66,3 +60,4 @@ These animations make the website feel dynamic, premium, and engaging.
 📜 GSAP ScrollTrigger – Scroll-based animations             |
 ⭐ Font Awesome – Icons             |
 🔤 Google Fonts – Typography             
+
