@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Krishna Harmony | Luxury Villas in Vadodara</title>
+    <title>Krishna Harmony | Real Assets — Luxury Villas in Vadodara</title>
+    <meta name="description" content="Krishna Harmony by Real Assets — an exclusive villa community on Waghodia Road, Vadodara, built around courtyards, water and quiet.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/x-icon" href="./assets/image/Rweblogo.png">
     <link rel="stylesheet" href="styles.css">
@@ -15,26 +16,35 @@
     <!-- Animated Background Elements -->
     <div class="bg-pattern"></div>
     <div class="circle-animation"></div>
-    
+    <div class="grain-overlay"></div>
+
     <!-- Header -->
     <header>
         <div class="header-container">
-            <div class="navbar-brand">
-                <div class="logo">
-                    <span class="logo-text">Krishna</span>
-                    <span class="logo-highlight">Harmony</span>
-                </div>
-            </div>
+            <a href="#" class="navbar-brand" aria-label="Krishna Harmony home">
+                <span class="logo-mark" aria-hidden="true">
+                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="32" cy="32" r="31" class="logo-ring"/>
+                        <path class="logo-feather" d="M32 12c6 6 9 13 9 20 0 6.5-4 11-9 12-5-1-9-5.5-9-12 0-7 3-14 9-20Z"/>
+                        <path class="logo-feather-vein" d="M32 16v24M25 24c3 1.5 5 3.5 7 6M39 24c-3 1.5-5 3.5-7 6"/>
+                        <circle cx="32" cy="20" r="2.4" class="logo-eye"/>
+                    </svg>
+                </span>
+                <span class="logo-text-group">
+                    <span class="logo-word">Krishna<em>Harmony</em></span>
+                    <span class="logo-sub">by Real Assets</span>
+                </span>
+            </a>
             <nav>
                 <ul>
-                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="#gallery"><i class="fas fa-images"></i> Gallery</a></li>
-                    <li><a href="#amenities"><i class="fas fa-swimming-pool"></i> Amenities</a></li>
-                    <li><a href="#specifications"><i class="fas fa-building"></i> Specifications</a></li>
-                    <li><a href="#location"><i class="fas fa-map-marker-alt"></i> Location</a></li>
-                    <li><a href="#contact"><i class="fas fa-phone-alt"></i> Contact</a></li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#specifications">Specifications</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
-                <button class="cta-button">Book Site Visit</button>
+                <button class="cta-button">Book a site visit</button>
             </nav>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -48,22 +58,34 @@
         <section class="hero-banner">
             <div class="hero-container">
                 <div class="hero-content">
+                    <p class="hero-eyebrow">Waghodia Road, Vadodara</p>
                     <h1 class="hero-title">
-                        <span class="title-line">🏡 Krishna Harmony</span>
-                        <span class="title-highlight" data-label="Luxury Villas in Vadodara">Luxury Villas in Vadodara</span>
+                        Villas built around
+                        <span class="title-highlight">courtyards, water<svg class="underline-swash" viewBox="0 0 320 18" preserveAspectRatio="none"><path d="M2 12C60 4 120 2 160 6C210 11 270 15 318 8"/></svg></span>
+                        and quiet
                     </h1>
-                    <div class="hero-tagline">
-                        <h2>Experience <span class="tagline-highlight">Open, Warm & Welcoming</span> Living</h2>
-                    </div>
-                    <p class="hero-subtitle">Welcome to Krishna Harmony, a landmark residential community where architectural beauty meets a serene lifestyle. We offer a collection of exquisite, opulent villas designed to foster peace and a profound sense of community—an iconic oasis of harmony away from the city's chaos.</p>
+                    <p class="hero-subtitle">Krishna Harmony is a landmark residential community where architecture makes room for stillness — a small collection of villas set apart from the noise, near Suzlon on Waghodia Road.</p>
                     <div class="hero-buttons">
-                        <button class="primary-btn">View Villas</button>
-                        <button class="secondary-btn">Download Brochure</button>
+                        <button class="primary-btn">View the villas</button>
+                        <button class="secondary-btn"><i class="fas fa-arrow-down"></i> Download brochure</button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="24">0</span>
+                            <span class="stat-label">Villas</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="12">0</span>
+                            <span class="stat-label">Amenities</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="7">0</span>
+                            <span class="stat-label">Acres</span>
+                        </div>
                     </div>
                 </div>
                 <div class="hero-image">
                     <div class="image-container">
-                        <!-- Image Slider -->
                         <div class="image-slider">
                             <div class="slider-wrapper">
                                 <div class="slide active">
@@ -77,80 +99,77 @@
                                 </div>
                             </div>
                             <div class="slider-controls">
-                                <button class="slider-prev"><i class="fas fa-chevron-left"></i></button>
-                                <button class="slider-next"><i class="fas fa-chevron-right"></i></button>
+                                <button class="slider-prev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+                                <button class="slider-next" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
                             </div>
                         </div>
-                        
+
                         <div class="floating-card card-1">
-                            <div class="card-icon">
-                                <i class="fas fa-home"></i>
-                            </div>
+                            <div class="card-icon"><i class="fas fa-home"></i></div>
                             <h3>Luxury Villas</h3>
                         </div>
                         <div class="floating-card card-2">
-                            <div class="card-icon">
-                                <i class="fas fa-swimming-pool"></i>
-                            </div>
+                            <div class="card-icon"><i class="fas fa-swimming-pool"></i></div>
                             <h3>Premium Amenities</h3>
                         </div>
                         <div class="floating-card card-3">
-                            <div class="card-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
+                            <div class="card-icon"><i class="fas fa-shield-alt"></i></div>
                             <h3>Secure Community</h3>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="scroll-cue" aria-hidden="true"><span></span>Scroll</div>
         </section>
 
         <!-- Gallery Section -->
         <section id="gallery" class="gallery-section">
             <div class="container">
-                <h2 class="section-title">🏞️ Project <span>Gallery</span></h2>
-                <p class="section-subtitle">Explore the beauty and elegance of Krishna Harmony through our visual tour</p>
-                
+                <div class="section-head">
+                    <h2 class="section-title">Project gallery</h2>
+                    <p class="section-subtitle">A visual tour of the architecture, interiors and grounds of Krishna Harmony.</p>
+                </div>
+
                 <div class="gallery-grid">
                     <div class="gallery-item">
                         <img src="./img/bg1.jpg" alt="Villa Exterior View">
                         <div class="gallery-overlay">
-                            <h3>Exterior View</h3>
+                            <h3>Exterior view</h3>
                             <p>Beautiful architecture with modern design</p>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="./img/bg3.jpg" alt="Spacious Living Room">
                         <div class="gallery-overlay">
-                            <h3>Living Room</h3>
+                            <h3>Living room</h3>
                             <p>Spacious and elegantly designed</p>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="./img/bg4.jpg" alt="Modern Kitchen">
                         <div class="gallery-overlay">
-                            <h3>Modern Kitchen</h3>
-                            <p>Granite countertops & premium fittings</p>
+                            <h3>Modern kitchen</h3>
+                            <p>Granite countertops &amp; premium fittings</p>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="./img/bg2.jpg" alt="Luxury Bathroom">
                         <div class="gallery-overlay">
-                            <h3>Luxury Bathroom</h3>
-                            <p>Ceramic tiles & premium fixtures</p>
+                            <h3>Luxury bathroom</h3>
+                            <p>Ceramic tiles &amp; premium fixtures</p>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="./img/bg5.jpg" alt="Swimming Pool">
                         <div class="gallery-overlay">
-                            <h3>Swimming Pool</h3>
+                            <h3>Swimming pool</h3>
                             <p>With beautiful waterfalls</p>
                         </div>
                     </div>
                     <div class="gallery-item">
                         <img src="./img/bg6.jpg" alt="AC Gymnasium">
                         <div class="gallery-overlay">
-                            <h3>A/C Gymnasium</h3>
+                            <h3>A/C gymnasium</h3>
                             <p>Fully equipped fitness center</p>
                         </div>
                     </div>
@@ -161,76 +180,65 @@
         <!-- Amenities Section -->
         <section id="amenities" class="amenities-section">
             <div class="container">
-                <h2 class="section-title">✨ Premium <span>Lifestyle Amenities</span></h2>
-                <p class="section-subtitle">Krishna Harmony is designed for complete living. Our extensive amenities ensure every day feels like a retreat.</p>
-                
+                <div class="section-head">
+                    <h2 class="section-title">Premium lifestyle amenities</h2>
+                    <p class="section-subtitle">Krishna Harmony is designed for complete living, so every day feels a little like a retreat.</p>
+                </div>
+
                 <div class="amenities-grid">
                     <div class="amenity-category">
-                        <div class="amenity-image">
-                            <img src="./img/bg2.jpg" alt="Swimming Pool">
+                        <div class="amenity-image"><img src="./img/bg2.jpg" alt="Swimming Pool"></div>
+                        <div class="amenity-body">
+                            <h3><i class="fas fa-heartbeat"></i> Recreation &amp; wellness</h3>
+                            <p>A swimming pool with waterfalls, a fully-equipped A/C gymnasium, a jogging track and landscaped gardens.</p>
+                            <ul class="amenity-list">
+                                <li><i class="fas fa-check"></i> Swimming pool with waterfalls</li>
+                                <li><i class="fas fa-check"></i> A/C gymnasium</li>
+                                <li><i class="fas fa-check"></i> Jogging track</li>
+                                <li><i class="fas fa-check"></i> Landscaped gardens</li>
+                            </ul>
                         </div>
-                        <h3><i class="fas fa-heartbeat"></i> Recreation & Wellness</h3>
-                        <p>Enjoy a beautiful swimming pool with waterfalls, a fully-equipped A/C gymnasium, a jogging track, and landscaped gardens.</p>
-                        <ul class="amenity-list">
-                            <li><i class="fas fa-check-circle"></i> Swimming Pool with Waterfalls</li>
-                            <li><i class="fas fa-check-circle"></i> A/C Gymnasium</li>
-                            <li><i class="fas fa-check-circle"></i> Jogging Track</li>
-                            <li><i class="fas fa-check-circle"></i> Landscaped Gardens</li>
-                        </ul>
                     </div>
-                    
+
                     <div class="amenity-category">
-                        <div class="amenity-image">
-                            <img src="./img/bg3.jpg" alt="Community Garden">
+                        <div class="amenity-image"><img src="./img/bg3.jpg" alt="Community Garden"></div>
+                        <div class="amenity-body">
+                            <h3><i class="fas fa-users"></i> Community spaces</h3>
+                            <p>Gather at the multipurpose hall, amphitheater, or gazebo — with dedicated zones for every age.</p>
+                            <ul class="amenity-list">
+                                <li><i class="fas fa-check"></i> Multipurpose hall</li>
+                                <li><i class="fas fa-check"></i> Amphitheater</li>
+                                <li><i class="fas fa-check"></i> Gazebo</li>
+                                <li><i class="fas fa-check"></i> Children's play area</li>
+                                <li><i class="fas fa-check"></i> Senior citizen garden</li>
+                            </ul>
                         </div>
-                        <h3><i class="fas fa-users"></i> Community Spaces</h3>
-                        <p>Gather at the multipurpose hall, amphitheater, or gazebo. We feature dedicated zones for all ages.</p>
-                        <ul class="amenity-list">
-                            <li><i class="fas fa-check-circle"></i> Multipurpose Hall</li>
-                            <li><i class="fas fa-check-circle"></i> Amphitheater</li>
-                            <li><i class="fas fa-check-circle"></i> Gazebo</li>
-                            <li><i class="fas fa-check-circle"></i> Children's Play Area</li>
-                            <li><i class="fas fa-check-circle"></i> Senior Citizen Garden</li>
-                        </ul>
                     </div>
-                    
+
                     <div class="amenity-category">
-                        <div class="amenity-image">
-                            <img src="./img/bg4.jpg" alt="Gymnasium">
+                        <div class="amenity-image"><img src="./img/bg4.jpg" alt="Gymnasium"></div>
+                        <div class="amenity-body">
+                            <h3><i class="fas fa-running"></i> Active living</h3>
+                            <p>Stay active with a multipurpose sports court and an indoor games room.</p>
+                            <ul class="amenity-list">
+                                <li><i class="fas fa-check"></i> Multipurpose sports court</li>
+                                <li><i class="fas fa-check"></i> Indoor games room</li>
+                            </ul>
                         </div>
-                        <h3><i class="fas fa-running"></i> Active Living</h3>
-                        <p>Stay active with a multipurpose sports court and indoor games room.</p>
-                        <ul class="amenity-list">
-                            <li><i class="fas fa-check-circle"></i> Multipurpose Sports Court</li>
-                            <li><i class="fas fa-check-circle"></i> Indoor Games Room</li>
-                        </ul>
                     </div>
                 </div>
-                
+
                 <div class="infrastructure-section">
-                    <h3><i class="fas fa-shield-alt"></i> Common Infrastructure for Peace of Mind</h3>
-                    <p>Your comfort and security are our priority. The project includes:</p>
+                    <div class="infrastructure-head">
+                        <h3><i class="fas fa-shield-alt"></i> Common infrastructure, for peace of mind</h3>
+                        <p>Your comfort and security are our priority. The project includes:</p>
+                    </div>
                     <div class="infrastructure-grid">
-                        <div class="infrastructure-item">
-                            <i class="fas fa-video"></i>
-                            <span>24/7 CCTV Surveillance</span>
-                        </div>
-                        <div class="infrastructure-item">
-                            <i class="fas fa-key"></i>
-                            <span>Security Cabin & Entrance Gate</span>
-                        </div>
-                        <div class="infrastructure-item">
-                            <i class="fas fa-tint"></i>
-                            <span>R.O. Water System</span>
-                        </div>
-                        <div class="infrastructure-item">
-                            <i class="fas fa-road"></i>
-                            <span>RCC Roads with Paving</span>
-                        </div>
-                        <div class="infrastructure-item">
-                            <i class="fas fa-lightbulb"></i>
-                            <span>Elegant Street Lighting</span>
-                        </div>
+                        <div class="infrastructure-item"><i class="fas fa-video"></i><span>24/7 CCTV surveillance</span></div>
+                        <div class="infrastructure-item"><i class="fas fa-key"></i><span>Security cabin &amp; entrance gate</span></div>
+                        <div class="infrastructure-item"><i class="fas fa-tint"></i><span>R.O. water system</span></div>
+                        <div class="infrastructure-item"><i class="fas fa-road"></i><span>RCC roads with paving</span></div>
+                        <div class="infrastructure-item"><i class="fas fa-lightbulb"></i><span>Elegant street lighting</span></div>
                     </div>
                 </div>
             </div>
@@ -239,60 +247,43 @@
         <!-- Specifications Section -->
         <section id="specifications" class="specifications-section">
             <div class="container">
-                <h2 class="section-title">🏠 Built to the <span>Highest Specifications</span></h2>
-                <p class="section-subtitle">Our villas are constructed with quality and care, offering spacious rooms and awe-inspiring aesthetics.</p>
-                
+                <div class="section-head">
+                    <h2 class="section-title">Built to the highest specifications</h2>
+                    <p class="section-subtitle">Constructed with quality and care, offering spacious rooms and awe-inspiring aesthetics.</p>
+                </div>
+
                 <div class="specs-visual">
-                    <div class="specs-image">
-                        <img src="./img/bg6.jpg" alt="Interior Specifications">
-                    </div>
+                    <div class="specs-image"><img src="./img/bg6.jpg" alt="Interior Specifications"></div>
                     <div class="specs-grid">
                         <div class="spec-card">
-                            <div class="spec-icon">
-                                <i class="fas fa-cube"></i>
-                            </div>
+                            <div class="spec-icon"><i class="fas fa-cube"></i></div>
                             <h3>Structure</h3>
                             <p>R.C.C. framed structure with brick masonry.</p>
                         </div>
-                        
                         <div class="spec-card">
-                            <div class="spec-icon">
-                                <i class="fas fa-paint-roller"></i>
-                            </div>
+                            <div class="spec-icon"><i class="fas fa-paint-roller"></i></div>
                             <h3>Finishes</h3>
-                            <p>External acrylic paint & internal wall putty. Vitrified tile flooring throughout all rooms.</p>
+                            <p>External acrylic paint &amp; internal wall putty. Vitrified tile flooring throughout.</p>
                         </div>
-                        
                         <div class="spec-card">
-                            <div class="spec-icon">
-                                <i class="fas fa-door-closed"></i>
-                            </div>
+                            <div class="spec-icon"><i class="fas fa-door-closed"></i></div>
                             <h3>Fixtures</h3>
-                            <p>Decorative main door, laminated internal doors, and powder-coated aluminum windows.</p>
+                            <p>Decorative main door, laminated internal doors, powder-coated aluminum windows.</p>
                         </div>
-                        
                         <div class="spec-card">
-                            <div class="spec-icon">
-                                <i class="fas fa-utensils"></i>
-                            </div>
+                            <div class="spec-icon"><i class="fas fa-utensils"></i></div>
                             <h3>Kitchens</h3>
                             <p>Granite countertops with stainless steel sink and glazed tile dado.</p>
                         </div>
-                        
                         <div class="spec-card">
-                            <div class="spec-icon">
-                                <i class="fas fa-bath"></i>
-                            </div>
+                            <div class="spec-icon"><i class="fas fa-bath"></i></div>
                             <h3>Bathrooms</h3>
                             <p>Ceramic floor tiles and decorative glazed wall tiles.</p>
                         </div>
-                        
                         <div class="spec-card">
-                            <div class="spec-icon">
-                                <i class="fas fa-tools"></i>
-                            </div>
+                            <div class="spec-icon"><i class="fas fa-tools"></i></div>
                             <h3>Utilities</h3>
-                            <p>Concealed CPVC/UPVC plumbing with premium fittings and concealed ISI-grade electrical wiring.</p>
+                            <p>Concealed CPVC/UPVC plumbing and concealed ISI-grade electrical wiring.</p>
                         </div>
                     </div>
                 </div>
@@ -304,34 +295,40 @@
             <div class="container">
                 <div class="location-container">
                     <div class="location-content">
-                        <h2 class="section-title">📍 Prime <span>Location</span></h2>
+                        <div class="section-head left">
+                            <h2 class="section-title">Prime location</h2>
+                        </div>
                         <div class="location-map">
                             <img src="./img/map.png" alt="Location Map - Near Suzlon, Waghodia Road">
-                            <div class="location-pin">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
+                            <div class="location-pin"><i class="fas fa-map-marker-alt"></i></div>
                         </div>
                         <p class="location-address">
                             <i class="fas fa-map-marker-alt"></i>
-                            <strong>Address:</strong> Near Suzlon, Opposite Sumandeep Vidyapeeth, Waghodia Road, Pipaliya, Vadodara.
+                            <span><strong>Address:</strong> Near Suzlon, Opposite Sumandeep Vidyapeeth, Waghodia Road, Pipaliya, Vadodara.</span>
                         </p>
                         <p class="location-desc">Ideally situated for connectivity and convenience.</p>
-                        
+
                         <div class="location-features">
-                            <h3><i class="fas fa-star"></i> Location Advantages</h3>
+                            <h3><i class="fas fa-star"></i> Location advantages</h3>
                             <ul>
-                                <li><i class="fas fa-check"></i> Proximity to Suzlon Corporate Office</li>
+                                <li><i class="fas fa-check"></i> Proximity to Suzlon corporate office</li>
                                 <li><i class="fas fa-check"></i> Opposite Sumandeep Vidyapeeth</li>
                                 <li><i class="fas fa-check"></i> Well-connected to Waghodia Road</li>
-                                <li><i class="fas fa-check"></i> Peaceful Pipaliya Neighborhood</li>
+                                <li><i class="fas fa-check"></i> Peaceful Pipaliya neighbourhood</li>
                             </ul>
                         </div>
                     </div>
-                    
+
                     <div id="contact" class="contact-box">
-                        <h3>Your New Home Awaits</h3>
-                        <p class="contact-subtitle">Contact Us Today for a Site Visit</p>
-                        
+                        <span class="logo-mark contact-mark" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="32" cy="32" r="31" class="logo-ring"/>
+                                <path class="logo-feather" d="M32 12c6 6 9 13 9 20 0 6.5-4 11-9 12-5-1-9-5.5-9-12 0-7 3-14 9-20Z"/>
+                            </svg>
+                        </span>
+                        <h3>Your new home awaits</h3>
+                        <p class="contact-subtitle">Contact us today for a site visit</p>
+
                         <div class="contact-info">
                             <div class="contact-item">
                                 <i class="fas fa-phone-alt"></i>
@@ -341,7 +338,6 @@
                                     <p class="contact-detail">+91 8734 95 8114</p>
                                 </div>
                             </div>
-                            
                             <div class="contact-item">
                                 <i class="fas fa-envelope"></i>
                                 <div>
@@ -349,20 +345,18 @@
                                     <p class="contact-detail">info@krishnagroupvadodara.com</p>
                                 </div>
                             </div>
-                            
                             <div class="contact-item">
                                 <i class="fas fa-clock"></i>
                                 <div>
-                                    <p class="contact-label">Visit Hours</p>
-                                    <p class="contact-detail">Mon-Sat: 10 AM - 7 PM</p>
-                                    <p class="contact-detail">Sunday: 11 AM - 5 PM</p>
+                                    <p class="contact-label">Visit hours</p>
+                                    <p class="contact-detail">Mon–Sat: 10 AM – 7 PM</p>
+                                    <p class="contact-detail">Sunday: 11 AM – 5 PM</p>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <button class="primary-btn contact-btn">
-                            <i class="fas fa-calendar-alt"></i>
-                            Schedule a Visit
+                            <i class="fas fa-calendar-alt"></i> Schedule a visit
                         </button>
                     </div>
                 </div>
@@ -375,21 +369,31 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <div class="logo">
-                        <span class="logo-text">Krishna</span>
-                        <span class="logo-highlight">Harmony</span>
-                    </div>
+                    <a href="#" class="navbar-brand" aria-label="Krishna Harmony home">
+                        <span class="logo-mark" aria-hidden="true">
+                            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="32" cy="32" r="31" class="logo-ring"/>
+                                <path class="logo-feather" d="M32 12c6 6 9 13 9 20 0 6.5-4 11-9 12-5-1-9-5.5-9-12 0-7 3-14 9-20Z"/>
+                                <path class="logo-feather-vein" d="M32 16v24M25 24c3 1.5 5 3.5 7 6M39 24c-3 1.5-5 3.5-7 6"/>
+                                <circle cx="32" cy="20" r="2.4" class="logo-eye"/>
+                            </svg>
+                        </span>
+                        <span class="logo-text-group">
+                            <span class="logo-word">Krishna<em>Harmony</em></span>
+                            <span class="logo-sub">by Real Assets</span>
+                        </span>
+                    </a>
                     <p class="footer-tagline">An iconic oasis of harmony away from the city's chaos.</p>
                     <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
-                    <h3>Quick Links</h3>
+                    <h3>Quick links</h3>
                     <ul>
                         <li><a href="#">Home</a></li>
                         <li><a href="#gallery">Gallery</a></li>
@@ -400,17 +404,15 @@
                     </ul>
                 </div>
                 <div class="footer-visit">
-                    <h3>Site Visit Hours</h3>
-                    <p><i class="far fa-clock"></i> Monday - Saturday: 10 AM - 7 PM</p>
-                    <p><i class="far fa-clock"></i> Sunday: 11 AM - 5 PM</p>
-                    <button class="footer-cta">
-                        <i class="fas fa-phone"></i>
-                        Call Now
-                    </button>
+                    <h3>Site visit hours</h3>
+                    <p><i class="far fa-clock"></i> Monday – Saturday: 10 AM – 7 PM</p>
+                    <p><i class="far fa-clock"></i> Sunday: 11 AM – 5 PM</p>
+                    <button class="footer-cta"><i class="fas fa-phone"></i> Call now</button>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 R15. All rights reserved. | Luxury Villas in Vadodara</p>
+                <p>&copy; 2026 Real Assets. All rights reserved. | Krishna Harmony, Luxury Villas in Vadodara</p>
+                <p class="credit-line">Designed and developed by <span>RT1504</span></p>
             </div>
         </div>
     </footer>

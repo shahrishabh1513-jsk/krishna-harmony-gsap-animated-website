@@ -1,205 +1,97 @@
-// Initialize GSAP
 gsap.registerPlugin(ScrollTrigger);
 
-// Circle animation timeline
-const circleAnimation = gsap.timeline({ defaults: { duration: 1 } });
+/* ==================== */
+/* PAGE-LOAD SEQUENCE   */
+/* ==================== */
+const intro = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
-// Animate the circle from big to small (cover to center)
-circleAnimation.fromTo('.circle-animation', 
-    { 
-        scale: 170, 
-        opacity: 0.3,
-        width: '100vh',
-        height: '100vh'
-    }, 
-    { 
-        scale: 0, 
-        duration: 2, 
-        ease: "power1.inOut",
-        width: 0,
-        height: 0
-    }
+intro.fromTo('.circle-animation',
+    { scale: 1, opacity: 1 },
+    { scale: 0, duration: 1.4, ease: 'power1.inOut' }
 );
 
-// Animate header
-circleAnimation.fromTo('header',
-    { 
-        y: -100,
-        opacity: 0 
-    },
-    { 
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power2.out"
-    },
-    "-=1"
-);
+intro.fromTo('header', { y: -80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 }, '-=0.8');
+intro.fromTo('.navbar-brand', { x: -30, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6 }, '-=0.5');
+intro.fromTo('nav ul li', { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.08 }, '-=0.35');
+intro.fromTo('.cta-button', { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.7)' }, '-=0.25');
 
-// Animate logo
-circleAnimation.fromTo('.navbar-brand',
-    { 
-        x: -50,
-        opacity: 0 
-    },
-    { 
-        x: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "back.out(1.7)"
-    },
-    "-=0.5"
-);
+intro.fromTo('.hero-eyebrow', { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, '-=0.3');
+intro.fromTo('.hero-title', { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7 }, '-=0.25');
+intro.to('.underline-swash path', { strokeDashoffset: 0, duration: 0.9, ease: 'power2.inOut' }, '-=0.35');
+intro.fromTo('.hero-subtitle', { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6 }, '-=0.4');
+intro.fromTo('.hero-buttons', { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55 }, '-=0.35');
+intro.fromTo('.stat-item', { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, stagger: 0.1 }, '-=0.3');
 
-// Animate navigation items with stagger
-circleAnimation.fromTo('nav ul li',
-    { 
-        y: 20,
-        opacity: 0 
-    },
-    { 
-        y: 0,
-        opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "back.out(1.7)"
-    },
-    "-=0.3"
-);
+intro.fromTo('.image-slider', { scale: 0.92, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.9, ease: 'power3.out' }, '-=0.9');
+intro.fromTo('.floating-card', { scale: 0, opacity: 0, rotation: -60 },
+    { scale: 1, opacity: 1, rotation: 0, duration: 0.7, stagger: 0.18, ease: 'back.out(1.6)' }, '-=0.5');
 
-// Animate CTA button
-circleAnimation.fromTo('.cta-button',
-    { 
-        scale: 0,
-        opacity: 0 
-    },
-    { 
-        scale: 1,
-        opacity: 1,
-        duration: 0.5,
-        ease: "back.out(1.7)"
-    },
-    "-=0.2"
-);
+intro.add(() => animateStats(), '-=0.2');
 
-// Animate hero content
-circleAnimation.fromTo('.hero-content',
-    { 
-        y: 50,
-        opacity: 0 
-    },
-    { 
-        y: 0,
-        opacity: 1,
-        duration: 1,
-        ease: "power2.out"
-    },
-    "-=0.5"
-);
+/* ==================== */
+/* STAT COUNTERS        */
+/* ==================== */
+function animateStats() {
+    document.querySelectorAll('.stat-number').forEach((el) => {
+        const target = parseInt(el.dataset.count, 10) || 0;
+        const counter = { val: 0 };
+        gsap.to(counter, {
+            val: target,
+            duration: 1.4,
+            ease: 'power1.out',
+            onUpdate: () => { el.textContent = Math.round(counter.val); }
+        });
+    });
+}
 
-// Animate hero image cards with stagger
-circleAnimation.fromTo('.floating-card',
-    { 
-        scale: 0,
-        opacity: 0,
-        rotation: -180
-    },
-    { 
-        scale: 1,
-        opacity: 1,
-        rotation: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "back.out(1.7)"
-    },
-    "-=0.5"
-);
+/* ==================== */
+/* FLOATING CARDS LOOP   */
+/* ==================== */
+gsap.to('.card-1', { y: 16, duration: 3, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+gsap.to('.card-2', { y: -14, duration: 3.4, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.4 });
+gsap.to('.card-3', { y: 18, duration: 3.8, repeat: -1, yoyo: true, ease: 'sine.inOut', delay: 0.8 });
 
-// ==================== //
-// IMAGE SLIDER FUNCTIONALITY
-// ==================== //
+/* ==================== */
+/* IMAGE SLIDER          */
+/* ==================== */
 class ImageSlider {
     constructor(containerSelector) {
         this.container = document.querySelector(containerSelector);
         if (!this.container) return;
-        
         this.slides = this.container.querySelectorAll('.slide');
         this.prevBtn = this.container.querySelector('.slider-prev');
         this.nextBtn = this.container.querySelector('.slider-next');
         this.currentSlide = 0;
         this.slideInterval = null;
-        
         this.init();
     }
-    
     init() {
-        if (this.slides.length === 0) return;
-        
+        if (!this.slides.length) return;
         this.showSlide(0);
         this.startAutoSlide();
-        
-        // Add event listeners
-        if (this.prevBtn) {
-            this.prevBtn.addEventListener('click', () => this.prevSlide());
-        }
-        
-        if (this.nextBtn) {
-            this.nextBtn.addEventListener('click', () => this.nextSlide());
-        }
-        
-        // Pause on hover
+        this.prevBtn?.addEventListener('click', () => this.prevSlide());
+        this.nextBtn?.addEventListener('click', () => this.nextSlide());
         this.container.addEventListener('mouseenter', () => this.stopAutoSlide());
         this.container.addEventListener('mouseleave', () => this.startAutoSlide());
     }
-    
     showSlide(index) {
-        // Remove active class from all slides
-        this.slides.forEach(slide => slide.classList.remove('active'));
-        
-        // Calculate new slide index
+        this.slides.forEach((s) => s.classList.remove('active'));
         this.currentSlide = (index + this.slides.length) % this.slides.length;
-        
-        // Add active class to current slide
-        this.slides[this.currentSlide].classList.add('active');
-        
-        // Animate slide change
-        gsap.fromTo(this.slides[this.currentSlide],
-            { opacity: 0, scale: 1.1 },
-            { opacity: 1, scale: 1, duration: 0.8, ease: "power2.out" }
-        );
+        const slide = this.slides[this.currentSlide];
+        slide.classList.add('active');
+        gsap.fromTo(slide, { opacity: 0, scale: 1.06 }, { opacity: 1, scale: 1, duration: 0.7, ease: 'power2.out' });
     }
-    
-    nextSlide() {
-        this.showSlide(this.currentSlide + 1);
-        this.restartAutoSlide();
-    }
-    
-    prevSlide() {
-        this.showSlide(this.currentSlide - 1);
-        this.restartAutoSlide();
-    }
-    
-    startAutoSlide() {
-        if (this.slideInterval) clearInterval(this.slideInterval);
-        this.slideInterval = setInterval(() => this.nextSlide(), 5000);
-    }
-    
-    stopAutoSlide() {
-        if (this.slideInterval) clearInterval(this.slideInterval);
-    }
-    
-    restartAutoSlide() {
-        this.stopAutoSlide();
-        this.startAutoSlide();
-    }
+    nextSlide() { this.showSlide(this.currentSlide + 1); this.restartAutoSlide(); }
+    prevSlide() { this.showSlide(this.currentSlide - 1); this.restartAutoSlide(); }
+    startAutoSlide() { this.stopAutoSlide(); this.slideInterval = setInterval(() => this.nextSlide(), 5000); }
+    stopAutoSlide() { if (this.slideInterval) clearInterval(this.slideInterval); }
+    restartAutoSlide() { this.stopAutoSlide(); this.startAutoSlide(); }
 }
+new ImageSlider('.image-slider');
 
-// Initialize image slider
-const heroSlider = new ImageSlider('.image-slider');
-
-// ==================== //
-// GALLERY MODAL FUNCTIONALITY
-// ==================== //
+/* ==================== */
+/* GALLERY MODAL         */
+/* ==================== */
 class GalleryModal {
     constructor() {
         this.modal = document.getElementById('imageModal');
@@ -207,250 +99,112 @@ class GalleryModal {
         this.modalTitle = document.getElementById('modalTitle');
         this.modalDesc = document.getElementById('modalDesc');
         this.modalClose = document.querySelector('.modal-close');
-        
         this.init();
     }
-    
     init() {
-        // Add click event to gallery items
-        document.querySelectorAll('.gallery-item').forEach(item => {
+        document.querySelectorAll('.gallery-item').forEach((item) => {
             item.addEventListener('click', (e) => this.openModal(e, item));
         });
-        
-        // Close modal events
-        if (this.modalClose) {
-            this.modalClose.addEventListener('click', () => this.closeModal());
-        }
-        
-        this.modal.addEventListener('click', (e) => {
-            if (e.target === this.modal) this.closeModal();
-        });
-        
-        // Close on ESC key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') this.closeModal();
-        });
+        this.modalClose?.addEventListener('click', () => this.closeModal());
+        this.modal?.addEventListener('click', (e) => { if (e.target === this.modal) this.closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') this.closeModal(); });
     }
-    
-    openModal(e, galleryItem) {
+    openModal(e, item) {
         e.preventDefault();
-        
-        const img = galleryItem.querySelector('img');
-        const title = galleryItem.querySelector('.gallery-overlay h3')?.textContent || '';
-        const desc = galleryItem.querySelector('.gallery-overlay p')?.textContent || '';
-        
+        const img = item.querySelector('img');
+        const title = item.querySelector('.gallery-overlay h3')?.textContent || '';
+        const desc = item.querySelector('.gallery-overlay p')?.textContent || '';
         this.modalImage.src = img.src;
         this.modalImage.alt = img.alt;
         this.modalTitle.textContent = title;
         this.modalDesc.textContent = desc;
-        
-        // Show modal with animation
         this.modal.classList.add('active');
         document.body.style.overflow = 'hidden';
-        
-        // Animate modal entrance
-        gsap.fromTo(this.modal,
-            { opacity: 0 },
-            { opacity: 1, duration: 0.3, ease: "power2.out" }
-        );
-        
-        gsap.fromTo('.modal-content',
-            { scale: 0.8, opacity: 0 },
-            { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }
-        );
+        gsap.fromTo(this.modal, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+        gsap.fromTo('.modal-content', { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' });
     }
-    
     closeModal() {
-        // Animate modal exit
-        gsap.to(this.modal,
-            { opacity: 0, duration: 0.3, ease: "power2.in",
-                onComplete: () => {
-                    this.modal.classList.remove('active');
-                    document.body.style.overflow = '';
-                }
-            }
-        );
+        gsap.to(this.modal, {
+            opacity: 0, duration: 0.25, ease: 'power2.in',
+            onComplete: () => { this.modal.classList.remove('active'); document.body.style.overflow = ''; }
+        });
     }
 }
+new GalleryModal();
 
-// Initialize gallery modal
-const galleryModal = new GalleryModal();
-
-// ==================== //
-// SCROLL ANIMATIONS
-// ==================== //
-
-// Scroll animations for amenity categories
-gsap.utils.toArray('.amenity-category').forEach((card, i) => {
-    gsap.fromTo(card,
-        {
-            y: 50,
-            opacity: 0
-        },
-        {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: card,
-                start: "top 80%",
-                end: "top 50%",
-                toggleActions: "play none none reverse"
-            }
-        }
-    );
+/* ==================== */
+/* SCROLL REVEALS         */
+/* ==================== */
+gsap.utils.toArray('.section-head').forEach((el) => {
+    gsap.fromTo(el, { y: 30, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 0.7, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 82%' }
+    });
 });
 
-// Scroll animations for specification cards
-gsap.utils.toArray('.spec-card').forEach((card, i) => {
-    gsap.fromTo(card,
-        {
-            y: 50,
-            opacity: 0,
-            rotationY: 90
-        },
-        {
-            y: 0,
-            opacity: 1,
-            rotationY: 0,
-            duration: 0.8,
-            delay: i * 0.1,
-            ease: "back.out(1.7)",
-            scrollTrigger: {
-                trigger: '.specifications-section',
-                start: "top 80%",
-                end: "top 50%",
-                toggleActions: "play none none reverse"
-            }
-        }
-    );
+gsap.utils.toArray('.gallery-item').forEach((el, i) => {
+    gsap.fromTo(el, { y: 24, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 0.6, delay: (i % 3) * 0.08, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 90%' }
+    });
 });
 
-// Animate infrastructure items
-gsap.utils.toArray('.infrastructure-item').forEach((item, i) => {
-    gsap.fromTo(item,
-        {
-            x: -50,
-            opacity: 0
-        },
-        {
-            x: 0,
-            opacity: 1,
-            duration: 0.5,
-            delay: i * 0.1,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: '.infrastructure-section',
-                start: "top 80%",
-                toggleActions: "play none none reverse"
-            }
-        }
-    );
+gsap.utils.toArray('.amenity-category').forEach((el, i) => {
+    gsap.fromTo(el, { y: 30, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 0.65, delay: i * 0.1, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 88%' }
+    });
 });
 
-// Animate gallery items
-gsap.utils.toArray('.gallery-item').forEach((item, i) => {
-    gsap.fromTo(item,
-        {
-            y: 100,
-            opacity: 0,
-            rotation: 5
-        },
-        {
-            y: 0,
-            opacity: 1,
-            rotation: 0,
-            duration: 0.8,
-            delay: i * 0.1,
-            ease: "back.out(1.7)",
-            scrollTrigger: {
-                trigger: '.gallery-section',
-                start: "top 80%",
-                toggleActions: "play none none reverse"
-            }
-        }
-    );
+gsap.fromTo('.infrastructure-section', { y: 30, opacity: 0 }, {
+    y: 0, opacity: 1, duration: 0.7, ease: 'power2.out',
+    scrollTrigger: { trigger: '.infrastructure-section', start: 'top 88%' }
 });
 
-// Animate images on scroll
-gsap.utils.toArray('.amenity-image img, .specs-image img, .location-map img').forEach((img, i) => {
-    gsap.fromTo(img,
-        {
-            opacity: 0,
-            scale: 0.9
-        },
-        {
-            opacity: 1,
-            scale: 1,
-            duration: 1,
-            delay: i * 0.1,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: img,
-                start: "top 85%",
-                toggleActions: "play none none reverse"
-            }
-        }
-    );
+gsap.utils.toArray('.spec-card').forEach((el, i) => {
+    gsap.fromTo(el, { y: 24, opacity: 0 }, {
+        y: 0, opacity: 1, duration: 0.55, delay: (i % 3) * 0.08, ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 90%' }
+    });
 });
 
-// Parallax effect for hero section
-gsap.to('.hero-image', {
-    y: 100,
-    ease: "none",
-    scrollTrigger: {
-        trigger: '.hero-banner',
-        start: "top top",
-        end: "bottom top",
-        scrub: true
+gsap.fromTo('.contact-box', { y: 60, opacity: 0, rotationX: 10 }, {
+    y: 0, opacity: 1, rotationX: 0, duration: 0.9, ease: 'power2.out',
+    scrollTrigger: { trigger: '.location-section', start: 'top 70%' }
+});
+
+/* ==================== */
+/* STICKY HEADER HIDE     */
+/* ==================== */
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+    const current = window.scrollY;
+    const header = document.querySelector('header');
+    if (current > lastScroll && current > 200) {
+        gsap.to(header, { y: -100, duration: 0.3 });
+    } else {
+        gsap.to(header, { y: 0, duration: 0.3 });
     }
+    lastScroll = current;
 });
 
-// Header scroll effect
-ScrollTrigger.create({
-    start: "top -80",
-    onUpdate: (self) => {
-        const header = document.querySelector('header');
-        if (self.direction === -1) {
-            gsap.to(header, { 
-                y: 0, 
-                backdropFilter: 'blur(10px)',
-                backgroundColor: 'rgba(255, 255, 255, 0.97)',
-                duration: 0.3 
-            });
-        } else if (self.direction === 1 && self.progress > 0.1) {
-            gsap.to(header, { 
-                y: -100, 
-                duration: 0.3 
-            });
-        }
-    }
-});
-
-// ==================== //
-// MOBILE MENU FUNCTIONALITY
-// ==================== //
+/* ==================== */
+/* MOBILE MENU            */
+/* ==================== */
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
 const nav = document.querySelector('nav');
 
 if (mobileMenuBtn) {
     mobileMenuBtn.addEventListener('click', () => {
-        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-        mobileMenuBtn.innerHTML = nav.style.display === 'flex' ? 
-            '<i class="fas fa-times"></i>' : 
-            '<i class="fas fa-bars"></i>';
-        
-        if (nav.style.display === 'flex') {
-            gsap.fromTo(nav,
-                { x: 300, opacity: 0 },
-                { x: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
-            );
+        const isOpen = nav.style.display === 'flex';
+        nav.style.display = isOpen ? 'none' : 'flex';
+        mobileMenuBtn.innerHTML = isOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+        if (!isOpen) {
+            gsap.fromTo(nav, { x: 300, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: 'power2.out' });
         }
     });
 }
 
-// Window resize handler
 window.addEventListener('resize', () => {
     if (window.innerWidth > 768) {
         if (nav) nav.style.display = '';
@@ -458,104 +212,28 @@ window.addEventListener('resize', () => {
     }
 });
 
-// ==================== //
-// BUTTON INTERACTIONS
-// ==================== //
-// Add hover effect to all buttons
-document.querySelectorAll('button').forEach(button => {
-    button.addEventListener('mouseenter', () => {
-        gsap.to(button, { scale: 1.05, duration: 0.2, ease: "power2.out" });
-    });
-    
-    button.addEventListener('mouseleave', () => {
-        gsap.to(button, { scale: 1, duration: 0.2, ease: "power2.out" });
-    });
+/* ==================== */
+/* BUTTON MICRO-INTERACTIONS */
+/* ==================== */
+document.querySelectorAll('button').forEach((button) => {
+    button.addEventListener('mouseenter', () => gsap.to(button, { scale: 1.04, duration: 0.2, ease: 'power2.out' }));
+    button.addEventListener('mouseleave', () => gsap.to(button, { scale: 1, duration: 0.2, ease: 'power2.out' }));
+    button.addEventListener('click', () => gsap.to(button, { scale: 0.95, duration: 0.1, yoyo: true, repeat: 1 }));
 });
 
-// Add click effect to all buttons
-document.querySelectorAll('button').forEach(button => {
-    button.addEventListener('click', () => {
-        gsap.to(button, { 
-            scale: 0.95, 
-            duration: 0.1,
-            yoyo: true,
-            repeat: 1 
-        });
-    });
-});
-
-// Initialize floating cards animation
-gsap.to('.card-1', {
-    y: 20,
-    duration: 3,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut"
-});
-
-gsap.to('.card-2', {
-    y: -15,
-    duration: 3.5,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut",
-    delay: 0.5
-});
-
-gsap.to('.card-3', {
-    y: 25,
-    duration: 4,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut",
-    delay: 1
-});
-
-// Animate contact box on scroll
-gsap.fromTo('.contact-box',
-    {
-        y: 100,
-        opacity: 0,
-        rotationX: 15
-    },
-    {
-        y: 0,
-        opacity: 1,
-        rotationX: 0,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-            trigger: '.location-section',
-            start: "top 70%",
-            toggleActions: "play none none reverse"
-        }
-    }
-);
-
-// ==================== //
-// SMOOTH SCROLLING
-// ==================== //
-// Smooth scroll for navigation links
-document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+/* ==================== */
+/* SMOOTH SCROLL          */
+/* ==================== */
+document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
+        if (targetId === '#' || targetId.length < 2) return;
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-            // Calculate offset for fixed header
             const headerHeight = document.querySelector('header').offsetHeight;
-            const targetPosition = targetElement.offsetTop - headerHeight;
-            
-            // Smooth scroll
-            gsap.to(window, {
-                duration: 1,
-                scrollTo: { y: targetPosition, autoKill: false },
-                ease: "power2.out"
-            });
-            
-            // Close mobile menu if open
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+            gsap.to(window, { duration: 1, scrollTo: { y: targetPosition, autoKill: false }, ease: 'power2.out' });
             if (window.innerWidth <= 768 && nav) {
                 nav.style.display = 'none';
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
@@ -564,140 +242,77 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ==================== //
-// FORM SUBMISSION (Optional)
-// ==================== //
-// Add form submission functionality for contact buttons
-document.querySelectorAll('.primary-btn, .secondary-btn, .contact-btn, .footer-cta, .cta-button').forEach(button => {
-    button.addEventListener('click', function() {
-        const buttonText = this.textContent.trim();
-        
-        // Different actions based on button type
-        switch(true) {
-            case buttonText.includes('Visit'):
-            case buttonText.includes('Book'):
-                showVisitForm();
-                break;
-            case buttonText.includes('Call'):
-                // Simulate phone call
-                alert('Calling Krishna Harmony at +91 8734 97 8114');
-                break;
-            case buttonText.includes('Brochure'):
-                downloadBrochure();
-                break;
-            default:
-                // Default action - scroll to contact
-                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+/* ==================== */
+/* ACTION BUTTONS         */
+/* ==================== */
+document.querySelectorAll('.primary-btn, .secondary-btn, .contact-btn, .footer-cta, .cta-button').forEach((button) => {
+    button.addEventListener('click', function () {
+        const text = this.textContent.trim();
+        if (text.includes('Visit') || text.includes('Book') || text.includes('Schedule')) {
+            showVisitForm();
+        } else if (text.includes('Call')) {
+            alert('Calling Krishna Harmony at +91 8734 97 8114');
+        } else if (text.includes('brochure') || text.includes('Brochure')) {
+            downloadBrochure();
+        } else if (text.includes('villas') || text.includes('Villas')) {
+            document.querySelector('#gallery')?.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
         }
     });
 });
 
 function showVisitForm() {
-    // Create a simple form modal
     const formHTML = `
         <div class="visit-form-modal">
             <div class="form-content">
-                <h3>Schedule a Site Visit</h3>
+                <h3>Schedule a site visit</h3>
                 <form id="visitForm">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="tel" placeholder="Phone Number" required>
-                    <input type="email" placeholder="Email Address">
-                    <input type="date" placeholder="Preferred Date" required>
-                    <button type="submit" class="primary-btn">Submit Request</button>
+                    <input type="text" placeholder="Your name" required>
+                    <input type="tel" placeholder="Phone number" required>
+                    <input type="email" placeholder="Email address">
+                    <input type="date" placeholder="Preferred date" required>
+                    <button type="submit" class="primary-btn">Submit request</button>
                 </form>
                 <button class="close-form">Close</button>
             </div>
-        </div>
-    `;
-    
-    // Add form to page
+        </div>`;
     const formContainer = document.createElement('div');
     formContainer.innerHTML = formHTML;
     document.body.appendChild(formContainer);
-    
-    // Add form styles
+
     const formStyles = `
-        .visit-form-modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 3000;
-        }
-        .form-content {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--radius-lg);
-            max-width: 400px;
-            width: 90%;
-        }
-        .form-content h3 {
-            color: var(--property-blue);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-        #visitForm input {
-            width: 100%;
-            padding: 0.75rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: var(--radius-md);
-            font-family: 'Poppins', sans-serif;
-        }
-        .close-form {
-            width: 100%;
-            margin-top: 1rem;
-            padding: 0.75rem;
-            background: #f0f0f0;
-            border: none;
-            border-radius: var(--radius-md);
-            cursor: pointer;
-        }
+        .visit-form-modal { position: fixed; inset: 0; background: rgba(7,30,28,0.85); display: flex; align-items: center; justify-content: center; z-index: 3500; padding: 20px; }
+        .form-content { background: #FBF8F0; padding: 2rem; border-radius: 20px; max-width: 400px; width: 100%; }
+        .form-content h3 { font-family: 'Fraunces', serif; color: #0F3D3B; margin-bottom: 1.4rem; text-align: center; font-weight: 500; }
+        #visitForm input { width: 100%; padding: 0.8rem 1rem; margin-bottom: 1rem; border: 1px solid #E3D7B4; border-radius: 10px; font-family: 'Manrope', sans-serif; }
+        #visitForm input:focus { outline: 2px solid #C9A227; }
+        #visitForm .primary-btn { width: 100%; justify-content: center; }
+        .close-form { width: 100%; margin-top: 1rem; padding: 0.75rem; background: #F1EAD6; border-radius: 999px; font-weight: 600; }
     `;
-    
     const styleEl = document.createElement('style');
     styleEl.textContent = formStyles;
     document.head.appendChild(styleEl);
-    
-    // Handle form submission
-    document.getElementById('visitForm').addEventListener('submit', function(e) {
+
+    document.getElementById('visitForm').addEventListener('submit', function (e) {
         e.preventDefault();
         alert('Thank you! Our team will contact you shortly to confirm your site visit.');
         document.querySelector('.visit-form-modal').remove();
         styleEl.remove();
     });
-    
-    // Handle close button
-    document.querySelector('.close-form').addEventListener('click', function() {
+    document.querySelector('.close-form').addEventListener('click', function () {
         document.querySelector('.visit-form-modal').remove();
         styleEl.remove();
     });
 }
 
 function downloadBrochure() {
-    // Simulate brochure download
     alert('Brochure download started. Check your downloads folder.');
-    
-    // In a real implementation, this would link to a PDF file
-    // window.open('brochure.pdf', '_blank');
 }
 
-// ==================== //
-// INITIALIZE ON LOAD
-// ==================== //
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Krishna Harmony website loaded successfully!');
-    
-    // Add loading animation for images
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-        img.addEventListener('load', function() {
-            gsap.to(this, { opacity: 1, duration: 0.5 });
-        });
-    });
+/* ==================== */
+/* INIT                   */
+/* ==================== */
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Krishna Harmony (Real Assets) website loaded.');
 });
