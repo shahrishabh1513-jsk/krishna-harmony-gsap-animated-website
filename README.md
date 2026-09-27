@@ -70,9 +70,10 @@
 ## 🔍 Live Preview
 
 <div align="center">
+<img width="1596" height="831" alt="image" src="" />
 
 <a href="https://shahrishabh1513-jsk.github.io/krishna-harmony-gsap-animated-website/" target="_blank">
-<img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fshahrishabh1513-jsk.github.io%2Fkrishna-harmony-gsap-animated-website%2F?w=1200" width="85%" style="border-radius:10px; box-shadow: 0 6px 18px rgba(0,0,0,0.2);"/>
+<img src="https://github.com/user-attachments/assets/dad3c36c-bc22-47cd-98a4-afc75b46853a" width="85%" style="border-radius:10px; box-shadow: 0 6px 18px rgba(0,0,0,0.2);"/>
 </a>
 
 <sub>👆 Click to explore the live site</sub>
