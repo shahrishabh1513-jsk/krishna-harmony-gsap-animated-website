@@ -24,7 +24,7 @@
 <a href="https://github.com/shahrishabh1513-jsk/krishna-harmony-gsap-animated-website"><img src="https://img.shields.io/badge/REPOSITORY-View_Code-181717?style=for-the-badge&logo=github&logoColor=white"/></a>
 <a href="https://github.com/shahrishabh1513-jsk/krishna-harmony-gsap-animated-website/stargazers"><img src="https://img.shields.io/badge/STAR-Support_This_Repo-D8C3A5?style=for-the-badge&logo=github&logoColor=black"/></a>
 
-<br/><br/>
+<br/>
 
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white"/>
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white"/>
@@ -70,15 +70,13 @@
 ## 🔍 Live Preview
 
 <div align="center">
-<img width="1596" height="831" alt="image" src="" />
-
 <a href="https://shahrishabh1513-jsk.github.io/krishna-harmony-gsap-animated-website/" target="_blank">
 <img src="https://github.com/user-attachments/assets/dad3c36c-bc22-47cd-98a4-afc75b46853a" width="85%" style="border-radius:10px; box-shadow: 0 6px 18px rgba(0,0,0,0.2);"/>
 </a>
 
 <sub>👆 Click to explore the live site</sub>
 
-<br/><br/>
+<br/>
 
 <a href="https://shahrishabh1513-jsk.github.io/krishna-harmony-gsap-animated-website/" target="_blank">
   <img src="https://img.shields.io/badge/🏡_VIEW_THE_VILLAS-1B4332?style=for-the-badge&logoColor=white"/>
